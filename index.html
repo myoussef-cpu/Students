@@ -419,8 +419,9 @@
         <a onclick="showPage('instructions')" class="nav-link">
             <i class="fas fa-info-circle"></i> <span id="instructionsLinkText">التعليمات</span>
         </a>
-      <a onclick="showPage('google')" class="nav-link">
+     <a onclick="showPageAndRedirect('google')" class="nav-link">
     <i class="fas fa-info-circle"></i> <span id="googleLinkText">رصد الدرجات عبر Google Drive</span>
+</a>
 </a>
     </nav>
 
@@ -1030,6 +1031,15 @@
       .then(() => console.log("تم تسجيل Service Worker بنجاح"))
       .catch((err) => console.error("فشل تسجيل Service Worker:", err));
   };
+        function showPageAndRedirect(page) {
+    // يمكنك تنفيذ أي عمليات إضافية هنا قبل التوجيه
+    console.log("تم النقر على: " + page);
+
+    // توجيه المستخدم إلى الملف المطلوب
+    if (page === 'google') {
+        window.location.href = 'google.html';
+    }
+}
    </script> 
 </body>
 </html>
