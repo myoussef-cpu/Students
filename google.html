@@ -215,13 +215,16 @@
 
         // تحميل iframe برابط Google Drive
         function loadGoogleDriveIframe(subject, grade, classSelect) {
-            const iframe = document.getElementById("googleDriveIframe");
-            if (googleDriveLinks[subject] && googleDriveLinks[subject][grade] && googleDriveLinks[subject][grade][classSelect]) {
-                iframe.src = googleDriveLinks[subject][grade][classSelect];
-            } else {
-                alert("رابط Google Drive غير متوفر لهذا الفصل.");
-            }
-        }
+    const iframe = document.getElementById("googleDriveIframe");
+    if (googleDriveLinks[subject] && googleDriveLinks[subject][grade] && googleDriveLinks[subject][grade][classSelect]) {
+        iframe.src = googleDriveLinks[subject][grade][classSelect];
+        iframe.onload = () => {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        };
+    } else {
+        alert("رابط Google Drive غير متوفر لهذا الفصل.");
+    }
+}
     </script>
 </body>
 </html>
