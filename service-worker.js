@@ -1,7 +1,7 @@
 const CACHE_NAME = "offline-cache-v1";
 const OFFLINE_URLS = [
-  "/My-website/",          // الصفحة الرئيسية
-  "/My-website/index.html" // ملف HTML
+  "/students/",          // الصفحة الرئيسية
+  "/students/index.html" // ملف HTML
 ];
 
 // تثبيت Service Worker وتخزين الملفات في الكاش
