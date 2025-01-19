@@ -1022,12 +1022,12 @@
         document.getElementById('themeColor').addEventListener('change', applySettings);
         document.getElementById('fontSize').addEventListener('change', applySettings);
 
-  if ("serviceWorker" in navigator) {
+    if ("serviceWorker" in navigator) {
     navigator.serviceWorker
-      .register("/My-website/service-worker.js") // المسار الكامل لملف Service Worker
+      .register("/students/service-worker.js") // المسار الكامل لملف Service Worker
       .then(() => console.log("تم تسجيل Service Worker بنجاح"))
       .catch((err) => console.error("فشل تسجيل Service Worker:", err));
-  };
+  });
    </script> 
 </body>
 </html>
