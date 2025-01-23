@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رصد الدرجات عبر Google Drive</title>
+    <title>رصد الدرجات عبر Google Drive - صفحة فرعية</title>
     <style>
         body {
             font-family: 'Tajawal', sans-serif;
@@ -59,10 +59,23 @@
             border-radius: 5px;
             display: none;
         }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            select, input, button {
+                font-size: 14px;
+                padding: 8px;
+            }
+            iframe {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h2>رصد الدرجات عبر Google Drive</h2>
+    <a href="main.html" style="display: block; margin-bottom: 20px;">العودة إلى الصفحة الرئيسية</a>
+    <h2>رصد الدرجات عبر Google Drive - صفحة فرعية</h2>
     <div id="googleDriveForm">
         <label for="subject">اختر المادة:</label>
         <select id="subject" onchange="loadGrades()">
@@ -147,7 +160,7 @@
         function loadGoogleDriveIframe(subject, grade, classSelect) {
             if (googleDriveLinks[subject] && googleDriveLinks[subject][grade] && googleDriveLinks[subject][grade][classSelect]) {
                 const link = googleDriveLinks[subject][grade][classSelect];
-                window.open(link, '_blank');
+                document.getElementById("googleDriveIframe").src = link;
             } else {
                 alert("رابط Google Drive غير متوفر لهذا الفصل.");
             }
@@ -155,3 +168,4 @@
     </script>
 </body>
 </html>
+
