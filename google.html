@@ -59,18 +59,6 @@
             border-radius: 5px;
             display: none;
         }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            select, input, button {
-                font-size: 14px;
-                padding: 8px;
-            }
-            iframe {
-                height: 300px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -102,6 +90,7 @@
     </div>
     <div id="errorMessage" class="message">كلمة المرور غير صحيحة!</div>
     <div id="googleDriveContent" style="display: none;">
+        <a href="#" onclick="goBack()">العودة للصفحة السابقة</a>
         <iframe id="googleDriveIframe" src="" allowfullscreen scrolling="yes"></iframe>
     </div>
     <script>
@@ -151,6 +140,7 @@
             if (passwords[subject] && passwords[subject][grade] && passwords[subject][grade][classSelect] === password) {
                 document.getElementById("errorMessage").style.display = "none";
                 document.getElementById("googleDriveContent").style.display = "block";
+                document.getElementById("googleDriveForm").style.display = "none"; // Hide the form
                 loadGoogleDriveIframe(subject, grade, classSelect);
             } else {
                 document.getElementById("errorMessage").style.display = "block";
@@ -164,6 +154,11 @@
             } else {
                 alert("رابط Google Drive غير متوفر لهذا الفصل.");
             }
+        }
+
+        function goBack() {
+            document.getElementById("googleDriveContent").style.display = "none";
+            document.getElementById("googleDriveForm").style.display = "block";
         }
     </script>
 </body>
