@@ -42,13 +42,13 @@
             background-color: #1a1a8a;
         }
         iframe {
-            width: 150%;
+            width: 200%;
             height: 1000px;
             border: none;
             margin-top: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: auto;
+            overflow: hidden;
             white-space: nowrap; /* Add this line */
         }
         .message {
@@ -92,7 +92,7 @@
     <div id="errorMessage" class="message">كلمة المرور غير صحيحة!</div>
     <div id="googleDriveContent" style="display: none;">
         <a href="#" onclick="goBack()">العودة للصفحة السابقة</a>
-        <iframe id="googleDriveIframe" src="" allowfullscreen scrolling="yes"></iframe>
+        <iframe id="googleDriveIframe" src="" allowfullscreen scrolling="yes" sandbox="allow-scripts allow-same-origin"></iframe>
     </div>
     <script>
         let passwords = {};
