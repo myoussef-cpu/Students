@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رصد الدرجات عبر Google Drive - صفحة فرعية</title>
+    <title>رصد الدرجات عبر Google Drive</title>
     <style>
         body {
             font-family: 'Tajawal', sans-serif;
@@ -64,7 +64,7 @@
 </head>
 <body>
     <a href="index.html" style="display: block; margin-bottom: 20px;">العودة إلى الصفحة الرئيسية</a>
-    <h2>رصد الدرجات عبر Google Drive - صفحة فرعية</h2>
+    <h2>رصد الدرجات عبر Google Drive</h2>
     <div id="googleDriveForm">
         <label for="subject">اختر المادة:</label>
         <select id="subject" onchange="loadGrades()">
@@ -86,7 +86,8 @@
         <div id="passwordField" style="display: none;">
             <label for="password">كلمة المرور:</label>
             <input type="password" id="password" placeholder="أدخل كلمة المرور">
-            <button onclick="authenticateGoogleDrive()"> اعرض الملف الان </button>
+            <button onclick="authenticateGoogleDrive()"> اعرض الملف -ويندوز- </button>
+            <button onclick="openInNewTab()">افتح الملف علي االاندوريد</button> <!-- New button -->
         </div>
     </div>
     <div id="errorMessage" class="message">كلمة المرور غير صحيحة!</div>
@@ -157,6 +158,20 @@
             }
         }
 
+        function openInNewTab() {
+            const subject = document.getElementById("subject").value;
+            const grade = document.getElementById("grade").value;
+            const classSelect = document.getElementById("class").value;
+            const password = document.getElementById("password").value;
+
+            if (passwords[subject] && passwords[subject][grade] && passwords[subject][grade][classSelect] === password) {
+                const link = googleDriveLinks[subject][grade][classSelect];
+                window.open(link, '_blank');
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+
         function goBack() {
             document.getElementById("googleDriveContent").style.display = "none";
             document.getElementById("googleDriveForm").style.display = "block";
@@ -164,4 +179,3 @@
     </script>
 </body>
 </html>
-
